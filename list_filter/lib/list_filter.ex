@@ -1,11 +1,13 @@
 defmodule ListFilter do
   require Integer
 
-  def count([]) do
+  def call(list), do: count(list)
+
+  defp count([]) do
     0
   end
 
-  def count(list) do
+  defp count(list) do
     list
     list_filtered = Enum.filter(list, fn x -> match?({_numero, ""}, Integer.parse(x)) end)
     list_collected = Enum.map(list_filtered, fn x -> String.to_integer(x) end)
